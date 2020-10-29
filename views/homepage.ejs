@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <title>Weather App</title>
+    <style>
+        .form-div {
+            padding-top: 100px;
+        }
+        .weatherInp {
+            padding-top: 15px;
+        }
+        .weatherStyle {
+            font-weight: bold;
+            padding-left: 90px;;
+        }
+        .sbmtBtn {
+            padding-left: 90px;;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row firstRow">
+            <div class="col-md-3  form-div">
+                <div class="row">
+                    <span class="weatherStyle">Weather App</span>
+                </div>
+                <div class="row weatherInp">
+                    <form action='/getWeather' method='POST' novalidate>
+                        <div class='form-group form-field'>
+                            <input name="city" placeholder="Enter City" type="text" class="form-control">
+                        </div>
+                        <div class="form-group form-actions sbmtBtn">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <% if(city) { %>
+                    <div>
+                        <%= city %> : <%= temprature %> degree
+                    </div>
+                <% } else if (message){ %>
+                    <div>
+                        <%= message %>
+                    </div>
+                <% } else { %>
+                    <div></div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
